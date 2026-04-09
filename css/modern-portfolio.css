@@ -63,6 +63,11 @@ a:hover {
   margin: 0 auto;
 }
 
+img,
+svg {
+  max-width: 100%;
+}
+
 .site-loader {
   position: fixed;
   inset: 0;
@@ -473,6 +478,12 @@ a:hover {
   background: rgba(15, 23, 42, 0.6);
   outline: none;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-details-list a,
+.contact-details-list li > span:last-child {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .contact-form input:focus,
@@ -1316,7 +1327,12 @@ main section[id] {
 
   .nav-links {
     top: 68px;
-    border-radius: 2px;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    max-height: calc(100vh - 92px);
+    overflow-y: auto;
+    border-radius: 10px;
     background: rgba(6, 6, 6, 0.95);
   }
 
@@ -1335,6 +1351,14 @@ main section[id] {
     width: min(720px, 100%);
     min-height: auto;
     padding: 1.5rem 1.1rem 1.6rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.35rem, 7vw, 1.9rem);
+  }
+
+  .hero h2 {
+    font-size: clamp(0.8rem, 3.6vw, 0.95rem);
   }
 
   .hero-content {
@@ -1357,6 +1381,7 @@ main section[id] {
     width: 100%;
     transform: none;
     margin-top: 0.8rem;
+    overflow: hidden;
   }
 
   .ticker-bottom {
@@ -1364,8 +1389,10 @@ main section[id] {
   }
 
   .floating-social {
-    left: 0.75rem;
+    right: 0.75rem;
+    left: auto;
     bottom: 0.75rem;
+    z-index: 1005;
     gap: 0.35rem;
   }
 
@@ -1377,6 +1404,14 @@ main section[id] {
   .social-icon {
     width: 0.9rem;
     height: 0.9rem;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .hero-actions {
+    width: 100%;
   }
 
   #contact .contact-form-row {
@@ -1398,5 +1433,71 @@ main section[id] {
 
   #experience .timeline-item::before {
     left: -1.18rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 1.25rem);
+  }
+
+  .navbar {
+    min-height: 68px;
+    gap: 0.5rem;
+  }
+
+  .brand {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-links {
+    top: 62px;
+    left: 0.625rem;
+    right: 0.625rem;
+    padding: 0.7rem;
+  }
+
+  .hero {
+    padding-bottom: 2rem;
+  }
+
+  .hero-frame {
+    border-radius: 20px;
+    padding: 1.15rem 0.9rem 1.25rem;
+  }
+
+  .hero-avatar-wrap {
+    width: min(160px, 58vw);
+  }
+
+  .ticker-track {
+    gap: 1.2rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.62rem;
+  }
+
+  .ticker-track span::after {
+    margin-left: 1.2rem;
+  }
+
+  .section {
+    padding-top: 2rem;
+    padding-bottom: 3.25rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  #contact .contact-quick-links a {
+    flex: 1 1 calc(50% - 0.3rem);
+    text-align: center;
+  }
+
+  #contact .contact-submit {
+    width: 100%;
+    min-width: 0;
+    justify-self: stretch;
   }
 }
